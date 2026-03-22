@@ -1,7 +1,6 @@
 package org.apps.quantitymeasurement;
 
-public enum LengthUnitUC10 implements IMeasurableUC10 {
-
+public enum LengthUnitUC11 implements IMeasurableUC11 {
     FEET(1.0),
     INCHES(1.0 / 12.0),
     YARDS(3.0),
@@ -9,26 +8,22 @@ public enum LengthUnitUC10 implements IMeasurableUC10 {
 
     private final double conversionFactor;
 
-    LengthUnitUC10(double conversionFactor) {
+    LengthUnitUC11(double conversionFactor) {
         this.conversionFactor = conversionFactor;
     }
 
-    @Override
     public double getConversionFactor() {
         return conversionFactor;
     }
 
-    @Override
     public double convertToBaseUnit(double value) {
         return value * conversionFactor;
     }
 
-    @Override
     public double convertFromBaseUnit(double baseValue) {
         return baseValue / conversionFactor;
     }
 
-    @Override
     public String getUnitName() {
         return this.name();
     }
