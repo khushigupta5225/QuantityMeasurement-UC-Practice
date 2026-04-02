@@ -1,17 +1,18 @@
-package org.apps.quantitymeasurement;
+package org.apps.quantitymeasurement.unit;
 
 import java.util.function.Function;
 
-public enum TemperatureUnitUC14 implements IMeasurableUC14 {
+public enum TemperatureUnitUC16 implements IMeasurableUC16 {
 
     CELSIUS(false),
     FAHRENHEIT(true);
 
     Function<Double, Double> conversion;
 
-    SupportsArithmeticUC14 supportsArithmetic = () -> false;
+    SupportsArithmeticUC16 supportsArithmetic = () -> false;
 
-    TemperatureUnitUC14(boolean f) {
+    // ✅ FIXED constructor
+    TemperatureUnitUC16(boolean f) {
 
         if (f)
             conversion = x -> (x - 32) * 5 / 9;
@@ -39,12 +40,9 @@ public enum TemperatureUnitUC14 implements IMeasurableUC14 {
         return baseValue * 9 / 5 + 32;
     }
 
-    public double convertTo(
-            double value,
-            TemperatureUnitUC14 target) {
+    public double convertTo(double value, TemperatureUnitUC16 target) {
 
         double base = convertToBaseUnit(value);
-
         return target.convertFromBaseUnit(base);
     }
 
@@ -57,10 +55,8 @@ public enum TemperatureUnitUC14 implements IMeasurableUC14 {
     public void validateOperationSupport(String op) {
 
         if (!supportsArithmetic.isSupported()) {
-
             throw new UnsupportedOperationException(
                     name() + " does not support " + op);
         }
     }
-
 }

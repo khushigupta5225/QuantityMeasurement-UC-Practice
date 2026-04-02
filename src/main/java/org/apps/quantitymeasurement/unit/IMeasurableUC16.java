@@ -1,8 +1,9 @@
-package org.apps.quantitymeasurement;
+package org.apps.quantitymeasurement.unit;
 
-public interface IMeasurableUC14 {
+public interface IMeasurableUC16 {
 
-    SupportsArithmeticUC14 supportsArithmetic = () -> true;
+    // functional interface for arithmetic support
+    SupportsArithmeticUC16 supportsArithmetic = () -> true;
 
     String getUnitName();
 
@@ -17,6 +18,6 @@ public interface IMeasurableUC14 {
     }
 
     default void validateOperationSupport(String operation) {
+        // default empty (override if needed)
     }
-
 }

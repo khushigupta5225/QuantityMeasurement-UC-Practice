@@ -1,15 +1,14 @@
-package org.apps.quantitymeasurement;
+package org.apps.quantitymeasurement.unit;
 
-public enum LengthUnitUC14 implements IMeasurableUC14 {
+public enum VolumeUnitUC16 implements IMeasurableUC16 {
 
-    FEET(12.0),
-    INCHES(1.0),
-    YARDS(36.0),
-    CENTIMETERS(0.393701);
+    LITRE(1),
+    MILLILITRE(0.001),
+    GALLON(3.78541);
 
     private final double factor;
 
-    LengthUnitUC14(double factor) {
+    VolumeUnitUC16(double factor) {
         this.factor = factor;
     }
 
@@ -28,5 +27,4 @@ public enum LengthUnitUC14 implements IMeasurableUC14 {
     public double convertFromBaseUnit(double baseValue) {
         return baseValue / factor;
     }
-
 }

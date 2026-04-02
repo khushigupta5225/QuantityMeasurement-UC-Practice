@@ -1,6 +1,6 @@
-package org.apps.quantitymeasurement;
+package org.apps.quantitymeasurement.unit;
 
-public enum WeightUnitUC14 implements IMeasurableUC14 {
+public enum WeightUnitUC16 implements IMeasurableUC16 {
 
     GRAM(1),
     KILOGRAM(1000),
@@ -8,7 +8,8 @@ public enum WeightUnitUC14 implements IMeasurableUC14 {
 
     private final double factor;
 
-    WeightUnitUC14(double factor) {
+    // ✅ FIXED constructor
+    WeightUnitUC16(double factor) {
         this.factor = factor;
     }
 
@@ -27,5 +28,4 @@ public enum WeightUnitUC14 implements IMeasurableUC14 {
     public double convertFromBaseUnit(double baseValue) {
         return baseValue / factor;
     }
-
 }
